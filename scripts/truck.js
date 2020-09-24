@@ -20,6 +20,15 @@ Truck.prototype.deliverOrder = function (customerId){
     //customer id should be the email associated with user
     
 };
+//creating function to print all order
+//loop through array 
+Truck.prototype.printOrders = function(){
+    var customerIdArray = Object.keys(this.db.getAll());
+    console.log('Truck #' + this.truckId + ' has pending orders:');
+    customerIdArray.forEach(function (id){
+        console.log(this.db.get(id));
+    }.bind(this));
+};
 
     App.Truck = Truck;
     window.App = App;
